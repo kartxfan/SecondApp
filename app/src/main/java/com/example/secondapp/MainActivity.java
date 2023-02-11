@@ -36,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
         // алгоритм расчёта накопления
         while (total>0) {
             count++; // добавление нового месяца платежа
-            total = (total + (total*percentBankMonth)/100) + monthSavings; // вычисление
             // заполнение массива ежемесячными платежами по накоплению
             // если сумма больше то
             // иначе
             // в массив добавляется платёж равный остатку накопления
             monthlyPayments[count - 1] = Math.min(total, monthSavings); // в массив добавляется целый платёж
+
+            total = (total + (total*percentBankMonth)/100) - monthSavings; // вычисление
         }
 
         return count;
